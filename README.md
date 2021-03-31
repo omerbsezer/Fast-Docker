@@ -113,6 +113,10 @@ Why shoul we use Docker?
 - There could be more than one app in docker image (such as: sh, ls, basic commands)
 - When the Docker container is started, it is allowed that a single application is configured to run automatically
 
+### Docker Container: Life Cycle
+
+![image](https://user-images.githubusercontent.com/10358317/113186436-f67b0700-9257-11eb-9b2e-41ccf056e88b.png)
+
 ### Docker Container: Union File System  <a name="container-filesystem"></a>
 
 - Images are R/O.
@@ -183,9 +187,26 @@ docker volume create volumeName
 
 ### Docker Swarm  <a name="swarm"></a>
 
+One of the Container Orchestration tool: 
+- Automating and scheduling the 
+    - deployment, 
+    - management, 
+    - scaling, and
+    - networking of containers
+- Container Orchestration tools:
+    - Docker Swarm,
+    - Kubernetes,
+    - Mesos
+
+![image](https://user-images.githubusercontent.com/10358317/113186661-3b06a280-9258-11eb-9bb8-3ad38d3c55fb.png)
+
+
 ### Docker Stack  <a name="stack"></a>
 
 ## Play With Docker  <a name="playWithDocker"></a>
+
+![image](https://user-images.githubusercontent.com/10358317/113187037-ae101900-9258-11eb-9789-781ca2f6a464.png)
+
 
 ## Usage Scenarios  <a name="scenario"></a>
 
