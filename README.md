@@ -216,7 +216,8 @@ One of the Container Orchestration tool:
 ```docker run hello-world
 docker info
 docker version
-docker --help```
+docker --help
+```
 
 #### listing (ls=listing)
 ```docker images ls
