@@ -213,18 +213,19 @@ One of the Container Orchestration tool:
 ## Docker Commands Cheatsheet <a name="cheatsheet"></a>
 
 #### first try
-docker run hello-world
+```docker run hello-world
 docker info
 docker version
-docker --help
+docker --help```
 
 #### listing (ls=listing)
-docker images ls
+```docker images ls
 docker container ls -a
 docker volume ls
 docker network ls
 docker container ps -a
 docker ps
+```
 
 #### image pull from, push to registry
 docker image pull alpine
