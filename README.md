@@ -250,15 +250,19 @@ docker exec -it 8aa sh
 #### local registry running (d=detach mode, p:portBinding)
 ```docker container run -d -p 5000:5000 --restart always --name localregistry registry
 ```
+
 #### port binding, background running ## (d=detach mode, p:portBinding)
 ```docker container run --name nginxcontainer -d -p 8080:80 nginx
 ```
+
 #### volume (v:volume host:container)
 ```docker container run --name ng2 -d -p 8080:80 -v test1:/usr/share/nginx/html nginx
 ```
+
 #### copy container to host (cp:copy)
 ```docker cp ng2:/test12 C:\Users\oesezer\Desktop\sampleBindMount
 ```
+
 #### copying from volume, creating new temp. container
 ```docker run -d -v hello:/hello --name c1 busybox
 docker cp c1:/hello ./
