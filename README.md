@@ -370,7 +370,8 @@ docker swarm join --token SWMTKN-1 5qbi2uydkawpcuo9rcp4quytr37z 1pzob5ss66o821br
 docker swarm join --token SWMTKN-1 5qbi2uydkawpcuo9rcp4quytr37z 1pzob5ss66o821br09h7x9-3bv78968l9qdfza68979np715 192.168.0.13:2377
 ```
 #### list managers and workers on swarm
-```docker node ls 
+```
+docker node ls 
 ```
 #### docker service, ls
 ```(run these commands on manager nodes)
