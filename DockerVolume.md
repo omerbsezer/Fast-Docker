@@ -20,7 +20,7 @@ This scenario shows the Docker Volume functionality.
 ```
 docker volume create test
 ```
-- Create a nginx container and bind to volume:
+- Create a nginx container and bind to volume (-d:detach/running on background, -p:port binding [hostPort]:[containerPort], -v: volume binding [volumeName]:[dockerDirectoryPath]):
 ```
 docker container run --name mywebserver -d -p 80:80 -v test:/usr/share/nginx/html nginx
 ```
