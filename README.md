@@ -9,7 +9,8 @@ This repo aims to cover Docker details (Dockerfile, Image, Container, Commands, 
 - [Motivation](#motivation)
     - [Needs](#needs)
     - [Benefits](#benefits)
-- [What is Docker](#whatIsDocker)
+    - [Problems Docker does not solve](#problems)
+- [What is Docker?](#whatIsDocker)
     - [Architecture](#architecture)
     - [Installation](#installation)
     - [Docker Engine (Deamon, REST API, CLI)](#engine)
@@ -31,31 +32,41 @@ This repo aims to cover Docker details (Dockerfile, Image, Container, Commands, 
 - [References](#references)
 
 ## Motivation <a name="motivation"></a>
-Why shoul we use Docker?
+Why should we use Docker? "Docker changed the way applications used to build and ship. It has completely revolutionized the containerization world." (Ref:ItNext)
 
 ### Needs <a name="needs"></a>
-- Installing all dependencies, setting up new environment for SWs (time consuming every time to install environment for testing ) 
-    - e.g. TDFNext Hw Service, EthSec, Xpad code on Linux/Win
+- Installing all dependencies, setting up new environment for SW (time consuming every time to install environment for testing ) 
 - We want to run our apps on different platforms (Ubuntu, Windows, Raspberry Pi).
     - Question in our mind: What if, it does not run on a different OS?
-- CI/CD Integration Testing: We can handle unit testing, component testing with Jenkins. Integration Testing? 
-    - It could be possible to encounter complex problems because of the lacking integration testing. We can avoid it with automatic integration testing (Extending Chain: Jenkins-Docker Image-Container-Automatic testing).  
+- CI/CD Integration Testing: We can handle unit testing, component testing with Jenkins. What if integration testing? 
+    - Extending Chain: Jenkins- Docker Image - Docker Container - Automatic testing
 - Are our SW products portable to carry on different PC easily? (especially in development & testing phase)
-- Microservice Architecture
+
 
 ### Benefits <a name="benefits"></a>
 
 - NOT needed to install dependencies/SWs again & again
 - Enables to run on different OS, different platforms
 - Enables consistent environment
+- Enables more efficient use of system resources
 - Easy to use and maintain
 - Efficient use of the system resources
 - Isolate SW components
-- Enable Automatic Integration Testing (CI/CD)
+- Enables faster software delivery cycles
 - Containers give us instant application portability.
 - Enables developers to easily pack, ship, and run any application as a lightweight, portable, self-sufficient container
+- Microservice Architecture (Monolithic Apps to MicroService Architecture, e.g. [Cloud Native App](https://docs.microsoft.com/en-us/dotnet/architecture/cloud-native/introduction))
 
-## What is Docker  <a name="whatIsDocker"></a>
+(Ref: Infoworld)
+
+### Problems Docker does not solve<a name="problems"></a>
+- NOT fix your security issues
+- NOT turn applications magically into microservices
+- Docker isn’t a substitute for virtual machines
+
+(Ref: Infoworld)
+
+## What is Docker?  <a name="whatIsDocker"></a>
 - Docker is a tool that reduces the gap between Development/Deployment phase of a software development cycle.
 - Docker is like VM but it has more features than VMs (no kernel, only small app and file systems, portable)
     - On Linux Kernel (2000s) two features are added (these features support Docker):
@@ -67,7 +78,7 @@ Why shoul we use Docker?
 
 ### Architecture  <a name="architecture"></a>
 
-![image](https://user-images.githubusercontent.com/10358317/113183210-0db7f580-9254-11eb-9716-0de635f3cbdf.png)
+![image](https://user-images.githubusercontent.com/10358317/113183210-0db7f580-9254-11eb-9716-0de635f3cbdf.png) (Ref: Docker.com)
 
 
 ### Installation  <a name="installation"></a>
@@ -420,4 +431,6 @@ docker stack ps firststack
 ```
 
 ## References  <a name="references"></a>
-   
+- [Docker.com](https://www.docker.com/)
+- [Infoworld](https://www.infoworld.com/article/3310941/why-you-should-use-docker-and-containers.html)
+- [ItNext](https://itnext.io/getting-started-with-docker-facts-you-should-know-d000e5815598)
