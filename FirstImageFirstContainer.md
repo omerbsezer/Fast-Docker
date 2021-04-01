@@ -1,4 +1,8 @@
-## App1: First Image and First Container
+## App: First Image and First Container
+
+This scenario shows how to build image from file, how to run docker container from image.
+
+### Steps
 
 - Create directory (“example”) on your Desktop.
 - Create file (“index.py”) in “example” directory (copy from below) (this is simple Flask that returns “Hello World” on the browser).
