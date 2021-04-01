@@ -57,6 +57,7 @@ docker run --name python-app -p 5000:5000 my-python-app
 
 - Open Browser (http://127.0.0.1:5000) to see the result. You created first Docker image and run first container. Congratulations! 😊 
 
- 
+ ![image](https://user-images.githubusercontent.com/10358317/113274597-2967de00-92de-11eb-8a76-1b1adde27f3a.png)
+
  
 
