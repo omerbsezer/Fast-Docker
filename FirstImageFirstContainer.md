@@ -1,4 +1,4 @@
-## APP1: First Image and First Container
+## App1: First Image and First Container
 
 - Create directory (“example”) on your Desktop.
 - Create file (“index.py”) in “example” directory (copy from below) (this is simple Flask that returns “Hello World” on the browser).
