@@ -134,13 +134,32 @@ Why should we use Docker? "Docker changed the way applications used to build and
 - When the Docker container is started, it is allowed that a single application is configured to run automatically
 
 ```
-docker container run nginx
+docker container run --name mywebserver -d -p 80:80 -v test:/usr/share/nginx/html nginx
+docker container ls -a
+docker image pull alpine
+docker image push alpine
+docker image build -t hello . (run this command where “Dockerfile” is)
+(PS: image file name MUST be “Dockerfile”, no extension)
+docker save -o hello.tar test/hello
+docker load -i <path to docker image tar file>
+docker load -i .\hello.tar
 ```
+
 Goto: [App1: Creating First Docker Image and Container using Docker File](https://github.com/omerbsezer/Fast-Docker/blob/main/FirstImageFirstContainer.md)
 
 ### Docker Container: Life Cycle
 
 ![image](https://user-images.githubusercontent.com/10358317/113186436-f67b0700-9257-11eb-9b2e-41ccf056e88b.png)
+
+```
+e.g. [imageName]=alpine, busybox, nginx, ubuntu, etc.
+docker image pull [imageName]
+docker container run [imageName]
+docker container start [containerId or containerName]
+docker container stop [containerId or containerName]
+docker container pause [containerId or containerName]
+docker container unpause [containerId or containerName]
+```
 
 ### Docker Container: Union File System  <a name="container-filesystem"></a>
 
