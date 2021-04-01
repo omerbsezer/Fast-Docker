@@ -1,5 +1,5 @@
 # Fast-Docker
-This repo aims to cover Docker details (Dockerfile, Image, Container, Commands, Volumes, Docker-Compose, Networks, Swarm, Stack), example usage in a nutshell.
+This repo aims to cover Docker details (Dockerfile, Image, Container, Commands, Volumes, Docker-Compose, Networks, Swarm, Stack), example usage scenarios (applications) in a nutshell.
 
 **Keywords:** Docker Image, Dockerfile, Containerization, Docker-Compose File, Swarm
 
@@ -9,8 +9,11 @@ This repo aims to cover Docker details (Dockerfile, Image, Container, Commands, 
 - [App1: Creating First Docker Image and Container using Docker File](https://github.com/omerbsezer/Fast-Docker/blob/main/FirstImageFirstContainer.md)
 - [App2: Binding Volume to the Different Containers](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerVolume.md)
 - [App3: Binding Mount to Container]()
-- [App4: Docker Compose and Creating WordPress with MySql]()
-- [App5: Docker Swarm using PlayWithDocker, Creating Cluster: 3 x WordPress and 1 x MySql]()
+- [App4: Docker Compose and Creating WordPress Container depends on MySql Container]()
+- [App5: Docker Swarm using PlayWithDocker, Creating Swarm Cluster: 3 x WordPress Containers and 1 x MySql Container]()
+- [App6: Copying Docker Volume Content to Host PC]()
+- [App7: Updating Docker Swarm Service]()
+- [App8: Creating New Network Switch and (Dis)Connecting Containers]
 - [Docker Commands Cheatsheet](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerCommandCheatSheet.md)
 
 # Table of Contents
@@ -118,6 +121,14 @@ Why should we use Docker? "Docker changed the way applications used to build and
 ### Docker Command Structure  <a name="command"></a>
 
 - docker [ManagementCommand] [Command] 
+
+```
+docker container ls -a
+docker image ls
+docker volume ls
+docker network ls
+docker container rm -f [containerName or containerID]
+```
 
 ![image](https://user-images.githubusercontent.com/10358317/113183615-81f29900-9254-11eb-8695-360680931866.png)
 
