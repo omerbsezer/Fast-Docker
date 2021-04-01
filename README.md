@@ -38,7 +38,6 @@ This repo aims to cover Docker details (Dockerfile, Image, Container, Commands, 
     - [Docker Swarm](#swarm)
     - [Docker Stack](#stack)
 - [Play With Docker](#playWithDocker)
-- [Usage Scenarios](#scenario)
 - [Docker Commands Cheatsheet](#cheatsheet)
 - [References](#references)
 
@@ -196,7 +195,7 @@ docker volume create test
 docker container run --name [containerName] -v [volumeName]:[pathInContainer] [imageName]
 docker container run --name c1 -v test:/app alpine
 ```
-[App: Binding Volume to the Different Containers](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerVolume.md)
+Goto: [App: Binding Volume to the Different Containers](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerVolume.md)
 
 #### Bind Mount
 ```
@@ -205,7 +204,7 @@ docker container run --name c1 -v C:\test:/app alpine
 ```
 ![image](https://user-images.githubusercontent.com/10358317/113184347-57eda680-9255-11eb-811c-9f55efd11deb.png) (Ref: Docker.com)
 
-[App: Binding Mount to Container]()
+Goto: [App: Binding Mount to Container]()
 
 ### Docker Network <a name="network"></a>
 - Docker containers work like VMs.
@@ -323,7 +322,8 @@ docker load -i .\hello.tar
 Goto: [App: Creating First Docker Image and Container using Docker File](https://github.com/omerbsezer/Fast-Docker/blob/main/FirstImageFirstContainer.md)
 
 ### Docker Compose  <a name="compose"></a>
-- It easies to create Docker components using one file: Docker-Compose file
+- Define and run multi-container applications with Docker.
+- Easy to create Docker components using one file: Docker-Compose file
 - It is yaml file that defines components: services, volumes, networks, secrets
 - Sample "docker-compose.yml" file: 
 
@@ -388,15 +388,25 @@ One of the Container Orchestration tool:
 ![image](https://user-images.githubusercontent.com/10358317/113186661-3b06a280-9258-11eb-9bb8-3ad38d3c55fb.png)
 
 ### Docker Stack  <a name="stack"></a>
+- With Docker Stack, multiple services can be created with one-file.
+- It is like Docker-Compose file but it has more features than Docker-compose file: update_config, replicas.
+- But it is running on when Docker Swarm mode is activated.
+- Network must be overlay.
 
-[App: Docker Swarm using PlayWithDocker, Creating Swarm Cluster: 3 x WordPress Containers and 1 x MySql Container]()
+```
+docker service create --name testservice --replicas=5 -p 8080:80 nginx
+docker service ps testservice
+docker service scale testservice=10
+docker service inspect testservice
+```
+
+![image](https://user-images.githubusercontent.com/10358317/113303356-4a8df600-9301-11eb-9114-38872ca01f29.png)
+
+Goto: [App: Docker Swarm using PlayWithDocker, Creating Swarm Cluster: 3 x WordPress Containers and 1 x MySql Container]()
 
 ## Play With Docker  <a name="playWithDocker"></a>
 
 ![image](https://user-images.githubusercontent.com/10358317/113187037-ae101900-9258-11eb-9789-781ca2f6a464.png)
-
-
-## Usage Scenarios  <a name="scenario"></a>
 
 ## Docker Commands Cheatsheet <a name="cheatsheet"></a>
 
