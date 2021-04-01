@@ -106,9 +106,10 @@ Why should we use Docker? "Docker changed the way applications used to build and
 
 ![image](https://user-images.githubusercontent.com/10358317/113183434-4eb00a00-9254-11eb-9275-9b1ccf705d5b.png)
 
+
 ### Docker Command Structure  <a name="command"></a>
 
-- docker ManagementCommand Command 
+- docker [ManagementCommand] [Command] 
 
 ![image](https://user-images.githubusercontent.com/10358317/113183615-81f29900-9254-11eb-8695-360680931866.png)
 
@@ -123,6 +124,10 @@ Why should we use Docker? "Docker changed the way applications used to build and
     - When this default app finished/stopped, container stopped. 
 - There could be more than one app in docker image (such as: sh, ls, basic commands)
 - When the Docker container is started, it is allowed that a single application is configured to run automatically
+
+```
+docker container run nginx
+```
 
 ### Docker Container: Life Cycle
 
