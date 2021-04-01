@@ -70,3 +70,13 @@ docker container run --name mywebserver3 -d -p 80:80 -v test:/usr/share/nginx/ht
 docker container rm -f mywebserver3
 docker container ls -a
 ```
+
+## App: Mount Binding to the Different Containers
+- If you are using Docker Desktop Windows/Mac, go to Docker Desktop Configuration Settings from app /Resources/FileSharing, add your root directory  (e.g. C:/)
+- Similar as a volume, but now host path directory is used.
+
+```
+docker container run --name mywebserver -d -p 80:80 -v C:\Docker\Webpage:/usr/share/nginx/html nginx
+```
+- Open browser to see the result (you will see the content of host directory)
+
