@@ -5,6 +5,13 @@ This repo aims to cover Docker details (Dockerfile, Image, Container, Commands, 
 
 **NOTE: This tutorial is only for education purpose. All related references are listed at the end of the file.**
 
+# Quick Look
+- [App1: Creating First Docker Image and Container using Docker File](https://github.com/omerbsezer/Fast-Docker/blob/main/FirstImageFirstContainer.md)
+- [App2: ]()
+- [App3: ]()
+- [App4: ]()
+- [Docker Commands Cheatsheet](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerCommandCheatSheet.md)
+
 # Table of Contents
 - [Motivation](#motivation)
     - [Needs](#needs)
@@ -74,7 +81,7 @@ Why should we use Docker? "Docker changed the way applications used to build and
         - Control Groups: Resource usage (CPU, Memory) isolation and limitation for each process. 
 - Without Docker, each VM consumes 30% resources (Memory, CPU)
 
-![image](https://user-images.githubusercontent.com/10358317/113183089-ef51fa00-9253-11eb-9ade-771905ce8ebd.png)
+![image](https://user-images.githubusercontent.com/10358317/113183089-ef51fa00-9253-11eb-9ade-771905ce8ebd.png) (Ref: Docker.com)
 
 ### Architecture  <a name="architecture"></a>
 
@@ -98,13 +105,13 @@ Why should we use Docker? "Docker changed the way applications used to build and
     - Rest API instructs docker daemon what to do.
     - Command Line Interface (CLI) is the client used to enter docker commands.
 
-![image](https://user-images.githubusercontent.com/10358317/113183406-45bf3880-9254-11eb-8d13-e68c83f3d349.png)
+![image](https://user-images.githubusercontent.com/10358317/113183406-45bf3880-9254-11eb-8d13-e68c83f3d349.png) (Ref: Docker.com)
 
 ### Docker Registry and Docker Hub  <a name="registry"></a>
 
 - https://hub.docker.com/
 
-![image](https://user-images.githubusercontent.com/10358317/113183434-4eb00a00-9254-11eb-9275-9b1ccf705d5b.png)
+![image](https://user-images.githubusercontent.com/10358317/113183434-4eb00a00-9254-11eb-9275-9b1ccf705d5b.png) 
 
 
 ### Docker Command Structure  <a name="command"></a>
@@ -154,7 +161,7 @@ Goto: [App1: Creating First Docker Image and Container using Docker File](https:
 
 docker volume create volumeName
 
-![image](https://user-images.githubusercontent.com/10358317/113184347-57eda680-9255-11eb-811c-9f55efd11deb.png)
+![image](https://user-images.githubusercontent.com/10358317/113184347-57eda680-9255-11eb-811c-9f55efd11deb.png) (Ref: Docker.com)
 
 ### Docker Network <a name="network"></a>
 - Docker containers work like VMs.
@@ -168,22 +175,22 @@ docker volume create volumeName
 #### Docker Network: Bridge
 - Default Network Driver: Bridge
 
-![image](https://user-images.githubusercontent.com/10358317/113184949-1b6e7a80-9256-11eb-9a0c-fe5c62404a06.png)
+![image](https://user-images.githubusercontent.com/10358317/113184949-1b6e7a80-9256-11eb-9a0c-fe5c62404a06.png) (Ref: Docker.com)
 
 #### Docker Network: Host
 - Containers reach host network interfaces
 
-![image](https://user-images.githubusercontent.com/10358317/113185061-43f67480-9256-11eb-9b94-83735ce980ce.png)
+![image](https://user-images.githubusercontent.com/10358317/113185061-43f67480-9256-11eb-9b94-83735ce980ce.png) (Ref: Docker.com)
 
 #### Docker Network: MacVlan
 - Each Container have own MAC interface
 
-![image](https://user-images.githubusercontent.com/10358317/113185105-52dd2700-9256-11eb-84f2-ef1880eb4f4c.png)
+![image](https://user-images.githubusercontent.com/10358317/113185105-52dd2700-9256-11eb-84f2-ef1880eb4f4c.png) (Ref: Docker.com)
 
 #### Docker Network: Overlay
 - Containers which work on different PC/host, can work like same network
 
-![image](https://user-images.githubusercontent.com/10358317/113185192-6e483200-9256-11eb-8cb4-d8aa170d1a1e.png)
+![image](https://user-images.githubusercontent.com/10358317/113185192-6e483200-9256-11eb-8cb4-d8aa170d1a1e.png) (Ref: Docker.com)
 
 ### Docker Log  <a name="log"></a>
 
