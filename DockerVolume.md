@@ -7,7 +7,7 @@ This scenario shows the Docker Volume functionality.
 - Second container ("mywebserver2") will be created without binding volume to show default page. Second container will be stopped and removed.
 - Third container ("mywebserver3") will be created with binding "test" volume. Content of container and volume ("test") will be synchronized. 
 
-Steps: 
+### Steps: 
 
 - Create directory (“Webpage”) on your Desktop.
 - Create file ("index.html" in "Webpage" directory) which contains following:
@@ -24,4 +24,49 @@ docker volume create test
 ```
 docker container run --name mywebserver -d -p 80:80 -v test:/usr/share/nginx/html nginx
 ```
--
+- Step into container:
+```
+docker container exec -it mywebserver sh
+ls
+```
+- In the container, go to content directory:
+```
+cd /usr/share/nginx/html
+ls
+```
+- To install "nano" application, update and install nano, in the following order:
+```
+apt-get update
+apt-get install vim nano -y
+```
+- Open "index.html" and change "Welcome to My Web Site" to "Welcome to My Web Site, This is written using First Container"
+```
+nano index.html
+```
+- Open browser to see the result
+- Press "CTRL+P+Q" to go out from container to host
+- Remove first container and be sure whether it is removed or not: 
+```
+docker container rm -f mywebserver
+docker container ls -a
+```
+- Create a nginx container without binding to the volume:
+```
+docker container run --name mywebserver2 -d -p 80:80 nginx
+```
+- Open browser to see the result (default nginx page)
+- Remove second container and be sure whether it is removed or not: 
+```
+docker container rm -f mywebserver2
+docker container ls -a
+```
+- Create a nginx container with binding to the volume:
+```
+docker container run --name mywebserver3 -d -p 80:80 -v test:/usr/share/nginx/html nginx
+```
+- Open browser to see the result (volume syncs with the last container)
+- Remove third container and be sure whether it is removed or not: 
+```
+docker container rm -f mywebserver3
+docker container ls -a
+```
