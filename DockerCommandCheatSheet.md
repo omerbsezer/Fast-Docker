@@ -1,4 +1,4 @@
-## Docker Commands Cheatsheet <a name="cheatsheet"></a>
+## Docker Commands Cheatsheet
 
 #### first try
 ```docker run hello-world
