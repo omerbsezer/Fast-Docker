@@ -13,7 +13,7 @@ This repo aims to cover Docker details (Dockerfile, Image, Container, Commands, 
 - [App5: Docker Swarm using PlayWithDocker, Creating Swarm Cluster: 3 x WordPress Containers and 1 x MySql Container]()
 - [App6: Copying Docker Volume Content to Host PC]()
 - [App7: Updating Docker Swarm Service]()
-- [App8: Creating New Network Switch and (Dis)Connecting Containers]
+- [App8: Creating New Network Switch and (Dis)Connecting Containers]()
 - [Docker Commands Cheatsheet](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerCommandCheatSheet.md)
 
 # Table of Contents
@@ -190,7 +190,17 @@ docker container unpause [containerId or containerName]
 - Volumes and Bind Mounts used for logs, inputs, outputs, etc..
 - When volumes bind to directory in the container, this directory and volume are synchronised.
 
-docker volume create volumeName
+```
+docker volume create [volumeName]
+docker volume create test
+docker container run --name [containerName] -v [volumeName]:[pathInContainer] [imageName]
+docker container run --name c1 -v test:/app alpine
+```
+#### Bind Mount
+```
+docker container run --name [containerName] -v [pathInHost]:[pathInContainer] [imageName]
+docker container run --name c1 -v C:\test:/app alpine
+```
 
 ![image](https://user-images.githubusercontent.com/10358317/113184347-57eda680-9255-11eb-811c-9f55efd11deb.png) (Ref: Docker.com)
 
@@ -204,28 +214,66 @@ docker volume create volumeName
     - Macvlan
     - Overlay
 #### Docker Network: Bridge
-- Default Network Driver: Bridge
+- Default Network Driver: Bridge (--net bridge)
+
+```
+docker network create [networkName]
+docker network create bridge1
+docker container run --name [containerName] --net [networkName] [imageName] 
+docker container run --name c1 --net bridge1 alpine sh
+docker network inspect bridge1
+docker container run --name c2 --net bridge1 alpine sh
+docker network connect bridge1 c2
+docker network inspect bridge1
+docker network disconnect bridge1 c2
+```
 
 ![image](https://user-images.githubusercontent.com/10358317/113184949-1b6e7a80-9256-11eb-9a0c-fe5c62404a06.png) (Ref: Docker.com)
 
 #### Docker Network: Host
-- Containers reach host network interfaces
+- Containers reach host network interfaces (--net host)
+
+```
+docker container run --name [containerName] --net [networkName] [imageName] 
+docker container run --name c1 --net host alpine sh
+```
 
 ![image](https://user-images.githubusercontent.com/10358317/113185061-43f67480-9256-11eb-9b94-83735ce980ce.png) (Ref: Docker.com)
 
 #### Docker Network: MacVlan
-- Each Container have own MAC interface
+- Each Container have own MAC interface (--net macvlan)
 
 ![image](https://user-images.githubusercontent.com/10358317/113185105-52dd2700-9256-11eb-84f2-ef1880eb4f4c.png) (Ref: Docker.com)
 
-#### Docker Network: Overlay
-- Containers which work on different PC/host, can work like same network
+#### Docker Network: Overlay 
+- Containers which work on different PC/host, can work like same network (--net overlay)
 
 ![image](https://user-images.githubusercontent.com/10358317/113185192-6e483200-9256-11eb-8cb4-d8aa170d1a1e.png) (Ref: Docker.com)
 
 ### Docker Log  <a name="log"></a>
 
+- Docker Logs show /dev/stdout, /dev/stderror
+
+```
+docker logs --details [containerName]
+```
+
+![image](https://user-images.githubusercontent.com/10358317/113289697-d8151a00-92f0-11eb-86e6-6280c4bf2e77.png)
+
+
 ### Docker Stats/Memory-CPU Limitations  <a name="stats"></a>
+
+![image](https://user-images.githubusercontent.com/10358317/113289735-e9f6bd00-92f0-11eb-940b-13113a5a5da2.png)
+
+![image](https://user-images.githubusercontent.com/10358317/113289755-efec9e00-92f0-11eb-9f49-333a4608c523.png)
+
+![image](https://user-images.githubusercontent.com/10358317/113289773-f5e27f00-92f0-11eb-8c4f-2db75f17baeb.png)
+
+
+### Docker Enviromental Variables  <a name="variables"></a>
+
+![image](https://user-images.githubusercontent.com/10358317/113289974-40fc9200-92f1-11eb-9f12-1125ec32eabf.png)
+
 
 ### Docker File  <a name="file"></a>
 
