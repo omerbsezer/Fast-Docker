@@ -6,14 +6,14 @@ This repo aims to cover Docker details (Dockerfile, Image, Container, Commands, 
 **NOTE: This tutorial is only for education purpose. All related references are listed at the end of the file.**
 
 # Quick Look 
-- [App1: Creating First Docker Image and Container using Docker File](https://github.com/omerbsezer/Fast-Docker/blob/main/FirstImageFirstContainer.md)
-- [App2: Binding Volume to the Different Containers](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerVolume.md)
-- [App3: Binding Mount to Container]()
-- [App4: Docker Compose and Creating WordPress Container depends on MySql Container]()
-- [App5: Docker Swarm using PlayWithDocker, Creating Swarm Cluster: 3 x WordPress Containers and 1 x MySql Container]()
-- [App6: Copying Docker Volume Content to Host PC]()
-- [App7: Updating Docker Swarm Service]()
-- [App8: Creating New Network Switch and (Dis)Connecting Containers]()
+- [App: Creating First Docker Image and Container using Docker File](https://github.com/omerbsezer/Fast-Docker/blob/main/FirstImageFirstContainer.md)
+- [App: Binding Volume to the Different Containers](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerVolume.md)
+- [App: Binding Mount to Container]()
+- [App: Docker Compose and Creating WordPress Container depends on MySql Container]()
+- [App: Docker Swarm using PlayWithDocker, Creating Swarm Cluster: 3 x WordPress Containers and 1 x MySql Container]()
+- [App: Copying Docker Volume Content to Host PC]()
+- [App: Updating Docker Swarm Service]()
+- [App: Creating New Network Switch and (Dis)Connecting Containers]()
 - [Docker Commands Cheatsheet](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerCommandCheatSheet.md)
 
 # Table of Contents
@@ -156,7 +156,7 @@ docker load -i <path to docker image tar file>
 docker load -i .\hello.tar
 ```
 
-Goto: [App1: Creating First Docker Image and Container using Docker File](https://github.com/omerbsezer/Fast-Docker/blob/main/FirstImageFirstContainer.md)
+Goto: [App: Creating First Docker Image and Container using Docker File](https://github.com/omerbsezer/Fast-Docker/blob/main/FirstImageFirstContainer.md)
 
 ### Docker Container: Life Cycle
 
@@ -196,13 +196,16 @@ docker volume create test
 docker container run --name [containerName] -v [volumeName]:[pathInContainer] [imageName]
 docker container run --name c1 -v test:/app alpine
 ```
+[App: Binding Volume to the Different Containers](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerVolume.md)
+
 #### Bind Mount
 ```
 docker container run --name [containerName] -v [pathInHost]:[pathInContainer] [imageName]
 docker container run --name c1 -v C:\test:/app alpine
 ```
-
 ![image](https://user-images.githubusercontent.com/10358317/113184347-57eda680-9255-11eb-811c-9f55efd11deb.png) (Ref: Docker.com)
+
+[App: Binding Mount to Container]()
 
 ### Docker Network <a name="network"></a>
 - Docker containers work like VMs.
@@ -213,6 +216,7 @@ docker container run --name c1 -v C:\test:/app alpine
     - Host
     - Macvlan
     - Overlay
+    
 #### Docker Network: Bridge
 - Default Network Driver: Bridge (--net bridge)
 
@@ -270,7 +274,7 @@ docker logs --details [containerName]
 ![image](https://user-images.githubusercontent.com/10358317/113289773-f5e27f00-92f0-11eb-8c4f-2db75f17baeb.png)
 
 
-### Docker Enviromental Variables  <a name="variables"></a>
+### Docker Enviroment Variables  <a name="variables"></a>
 
 ![image](https://user-images.githubusercontent.com/10358317/113289974-40fc9200-92f1-11eb-9f12-1125ec32eabf.png)
 
@@ -279,14 +283,94 @@ docker logs --details [containerName]
 
 ![image](https://user-images.githubusercontent.com/10358317/113185932-54f3b580-9257-11eb-9f50-0d18512a0c40.png)
 
+#### Sample Docker Files
 
+```
+FROM python:alpine3.7
+COPY . /app
+WORKDIR /app
+RUN pip install -r requirements.txt
+EXPOSE 5000
+CMD python ./index.py
+```
+
+```
+FROM ubuntu:18.04
+RUN apt-get update -y
+RUN apt-get install default-jre -y
+WORKDIR /myapp
+COPY /myapp .
+CMD ["java","hello"]
+```
 
 ### Docker Image  <a name="image"></a>
 
+- Create Image using Dockerfile
+```
+docker image build -t hello . (run this command where “Dockerfile” is)
+(PS: image file name MUST be “Dockerfile”, no extension)
+docker image pull [imageName]
+docker image push [imageName]
+docker image tag [imageOldName] [imageNewName]
+(PS: If you want to push DockerHub, [imageNewName]=[username]/[imageName]:[version])
+docker save -o hello.tar test/hello
+docker load -i <path to docker image tar file>
+docker load -i .\hello.tar
+```
+
 ![image](https://user-images.githubusercontent.com/10358317/113186047-748ade00-9257-11eb-9c1c-1604d53523e8.png)
 
+Goto: [App: Creating First Docker Image and Container using Docker File](https://github.com/omerbsezer/Fast-Docker/blob/main/FirstImageFirstContainer.md)
 
 ### Docker Compose  <a name="compose"></a>
+- It easies to create Docker components using one file: Docker-Compose file
+- It is yaml file that defines components: services, volumes, networks, secrets
+- Sample "docker-compose.yml" file: 
+
+```
+version: "3.8"
+
+services:
+  mydatabase:
+    image: mysql:5.7
+    restart: always
+    volumes: 
+      - mydata:/var/lib/mysql
+    environment: 
+      MYSQL_ROOT_PASSWORD: somewordpress
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+    networks:
+      - mynet
+  mywordpress:
+    image: wordpress:latest
+    depends_on: 
+      - mydatabase
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    environment: 
+      WORDPRESS_DB_HOST: mydatabase:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
+    networks:
+      - mynet
+volumes:
+  mydata: {}
+networks:
+  mynet:
+    driver: bridge
+```
+
+- After saving file as "docker-compose.yml", run following commands where docker-compose file is, to create containers, volumes, networks:
+```
+docker-compose up -d
+docker-compose down
+```
+Goto: [App: Docker Compose and Creating WordPress Container depends on MySql Container]()
 
 ### Docker Swarm  <a name="swarm"></a>
 
@@ -303,8 +387,9 @@ One of the Container Orchestration tool:
 
 ![image](https://user-images.githubusercontent.com/10358317/113186661-3b06a280-9258-11eb-9bb8-3ad38d3c55fb.png)
 
-
 ### Docker Stack  <a name="stack"></a>
+
+[App: Docker Swarm using PlayWithDocker, Creating Swarm Cluster: 3 x WordPress Containers and 1 x MySql Container]()
 
 ## Play With Docker  <a name="playWithDocker"></a>
 
