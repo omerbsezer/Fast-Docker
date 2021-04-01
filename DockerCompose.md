@@ -108,4 +108,5 @@ ping 172.19.0.2
 ```
 docker-compose down
 ```
+![image](https://user-images.githubusercontent.com/10358317/113316439-9f843900-930e-11eb-8e34-4fce7460eaae.png)
 
