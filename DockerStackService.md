@@ -45,6 +45,65 @@ docker node ls
 ```
 ![image](https://user-images.githubusercontent.com/10358317/113415443-8091af80-93bf-11eb-8454-a2f3341d81a0.png)
 
-- Copy 
+- Copy following "docker-compose.yml" content:
+```
+version: "3.8"
 
+services:
+  mydatabase:
+    image: mysql:5.7
+    restart: always
+    volumes: 
+      - mydata:/var/lib/mysql
+    environment: 
+      MYSQL_ROOT_PASSWORD: somewordpress
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+    networks:
+      - mynet
+  mywordpress:
+    image: wordpress:latest
+    deploy:
+      replicas: 3
+      update_config:
+        parallelism: 2
+        delay: 5s
+        order: stop-first
+    depends_on: 
+      - mydatabase
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    environment: 
+      WORDPRESS_DB_HOST: mydatabase:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
+    networks:
+      - mynet
+
+volumes:
+  mydata:
+
+networks:
+  mynet:
+    driver: overlay
+```
+- On the leader Manager Node, create "docker-compose.yml" file, paste the content using "Shift+Insert":
+```
+cat > docker-compose.yml
+(After pasting, "Enter" and "CTRL+D" to save the file)
+```
+![image](https://user-images.githubusercontent.com/10358317/113416454-ac159980-93c1-11eb-8b6e-cc175eaff8f6.png)
+
+- Start Docker Service using docker-compose.yml file:
+```
+docker stack deploy --compose-file docker-compose.yml firststack
+```
+![image](https://user-images.githubusercontent.com/10358317/113416665-19292f00-93c2-11eb-8270-6db81b384363.png)
+
+- Click "80" port to see "WodPress" Container Service:
+![image](https://user-images.githubusercontent.com/10358317/113416833-66a59c00-93c2-11eb-89a8-d5b9eadf600f.png)
 
