@@ -63,6 +63,9 @@ docker-compose up -d
 ```
 docker container ls -a
 ```
+![image](https://user-images.githubusercontent.com/10358317/113410555-00198180-93b4-11eb-8784-8b561b5afb21.png)
+
+
 - Open Browser (127.0.0.1) to see result:
 
 ![image](https://user-images.githubusercontent.com/10358317/113315210-58e20f00-930d-11eb-972e-67c6885404bb.png)
