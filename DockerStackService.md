@@ -107,3 +107,6 @@ docker stack deploy --compose-file docker-compose.yml firststack
 - Click "80" port to see "WodPress" Container Service:
 ![image](https://user-images.githubusercontent.com/10358317/113416833-66a59c00-93c2-11eb-89a8-d5b9eadf600f.png)
 
+docker stack ls 
+docker stack services firststack
+docker stack ps firststack
