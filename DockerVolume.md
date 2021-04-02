@@ -73,6 +73,9 @@ docker container ls -a
 
 ## App: Mount Binding to the Different Containers <a name="app_mount"></a>
 - If you are using Docker Desktop Windows/Mac, go to Docker Desktop Configuration Settings from app /Resources/FileSharing, add your root directory  (e.g. C:/)
+
+![image](https://user-images.githubusercontent.com/10358317/113410473-bdf04000-93b3-11eb-82fd-e2bcd508bebe.png)
+
 - Similar as a volume, but now host path directory is used.
 
 ```
