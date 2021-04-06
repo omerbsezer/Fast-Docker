@@ -392,10 +392,10 @@ One of the Container Orchestration tool:
 - But it is running on when Docker Swarm mode is activated.
 - Network must be overlay.
 
+#### Creating, Listing, Inspecting
 ```
 docker service create --name testservice --replicas=5 -p 8080:80 nginx
-docker service ps testservice
-docker service scale testservice=10
+docker service ps testservice (listing running containers on which nodes)
 docker service inspect testservice
 ```
 #### Scaling
