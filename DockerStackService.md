@@ -184,7 +184,7 @@ docker stack ps firststack
 - Run on terminal to stop and remove containers in Docker Service:
 ```
 docker stack rm firststack
-docker node ls
+docker stack ps firststack
 ```
 ![image](https://user-images.githubusercontent.com/10358317/113697847-0ff6d580-96d4-11eb-870e-aaa1059ffe37.png)
 
