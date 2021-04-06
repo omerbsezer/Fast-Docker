@@ -173,15 +173,15 @@ docker container unpause [containerId or containerName]
 ```
 
 ### Docker Container: Union File System  <a name="container-filesystem"></a>
-
-- Images are R/O.
-- When containers are created, new R/W thin layer is created.
+- Images are read only (R/O).
+- When containers are created, new read-write (R/W) thin layer is created.
 
 ![image](https://user-images.githubusercontent.com/10358317/113183883-d8f86e00-9254-11eb-994b-30c17fe9429b.png) (Ref: docs.docker.com)
 
 ### Docker Volumes: Why Volumes needed?
-- WhenPersistence
-- e.g. Create log file in the container. When it is killed, log file also killed. So we use Volumes!
+- Containers do not save the changings when removed, if there is not any binding to volume/mount. 
+- For persistence, volumes/mounts MUST be used. 
+- e.g. Creating log file in the container. When the container is removed, log file also removed with container. So volumes/binding mounts MUST be used!
 
 ![image](https://user-images.githubusercontent.com/10358317/113184189-2d035280-9255-11eb-9409-578ad1f2bd4b.png) (Ref: udemy-course:adan-zye-docker)
 
