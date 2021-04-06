@@ -323,7 +323,11 @@ Goto: [App: Creating First Docker Image and Container using Docker File](https:/
 ### Docker Compose  <a name="compose"></a>
 - Define and run multi-container applications with Docker.
 - Easy to create Docker components using one file: Docker-Compose file
-- It is yaml file that defines components: services, volumes, networks, secrets
+- It is yaml file that defines components: 
+    - Services, 
+    - Volumes, 
+    - Networks, 
+    - Secrets
 - Sample "docker-compose.yml" file: 
 
 ```
