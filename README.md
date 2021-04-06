@@ -1,5 +1,5 @@
 # Fast-Docker
-There are many Docker tutorials and courses in the internet. This repo aims to cover Docker details (Dockerfile, Image, Container, Commands, Volumes, Docker-Compose, Networks, Swarm, Stack) fastly, and possible example usage scenarios (applications) in a nutshell. Possible usage scenarios are aimed to update over time.App
+There are many Docker tutorials and courses on the internet. This repo aims to cover Docker details (Dockerfile, Image, Container, Commands, Volumes, Docker-Compose, Networks, Swarm, Stack) fastly, and possible example usage scenarios (applications) in a nutshell. Possible usage scenarios are aimed to update over time.
 
 **Keywords:** DockerImage, Dockerfile, Containerization, Docker-Compose, Swarm, Service, Cheatsheet
 
@@ -43,12 +43,12 @@ There are many Docker tutorials and courses in the internet. This repo aims to c
 Why should we use Docker? "Docker changed the way applications used to build and ship. It has completely revolutionized the containerization world." (Ref:ItNext)
 
 ### Needs <a name="needs"></a>
-- Installing all dependencies, setting up new environment for SW (time consuming every time to install environment for testing ) 
+- Installing all dependencies, setting up a new environment for SW (time-consuming every time to install environment for testing ) 
 - We want to run our apps on different platforms (Ubuntu, Windows, Raspberry Pi).
     - Question in our mind: What if, it does not run on a different OS?
 - CI/CD Integration Testing: We can handle unit testing, component testing with Jenkins. What if integration testing? 
     - Extending Chain: Jenkins- Docker Image - Docker Container - Automatic testing
-- Are our SW products portable to carry on different PC easily? (especially in development & testing phase)
+- Are our SW products portable to carry on different PC easily? (especially in the development & testing phase)
 
 
 ### Benefits <a name="benefits"></a>
@@ -68,8 +68,8 @@ Why should we use Docker? "Docker changed the way applications used to build and
 (Ref: Infoworld)
 
 ### Problems Docker does not solve<a name="problems"></a>
-- NOT fix your security issues
-- NOT turn applications magically into microservices
+- Docker does NOT fix your security issues
+- Docker does NOT turn applications magically into microservices
 - Docker isn’t a substitute for virtual machines
 
 (Ref: Infoworld)
