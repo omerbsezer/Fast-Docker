@@ -140,3 +140,31 @@ docker stack services firststack
 docker stack ps firststack
 ```
 ![image](https://user-images.githubusercontent.com/10358317/113693389-d8395f00-96ce-11eb-85e3-13c3334b7eac.png)
+
+- Go to Node5 and run on terminal to see the running container, connected network and networks' details:
+```
+docker container ls -a
+docker network ls 
+docker network inspect firststack_mynet
+```
+![image](https://user-images.githubusercontent.com/10358317/113694959-a45f3900-96d0-11eb-95f5-8e79cbdafcf8.png)
+
+- Run on terminal to step into container:
+```
+docker exec -it [containerID] sh
+docker exec -it aeb sh 
+docker container exec -it aeb sh
+```
+
+- Run on terminal to update, install net-tools (ifconfig), iputils-ping (ping) and to see the Ethernet interfaces (ifconfig) and connection of other containers (ping):
+```
+apt-get update
+apt-get install net-tools
+apt-get install iputils-ping -y
+ifconfig
+ping 10.0.1.2
+ping 10.0.1.3
+```
+
+![image](https://user-images.githubusercontent.com/10358317/113695846-9d84f600-96d1-11eb-8ff5-a65188ea4bb5.png)
+
