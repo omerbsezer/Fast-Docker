@@ -88,7 +88,7 @@ Why should we use Docker? "Docker changed the way applications used to build and
 
 ### Architecture  <a name="architecture"></a>
 
-![image](https://user-images.githubusercontent.com/10358317/113183210-0db7f580-9254-11eb-9716-0de635f3cbdf.png) (Ref: Docker.com)
+![image](https://user-images.githubusercontent.com/10358317/113183210-0db7f580-9254-11eb-9716-0de635f3cbdf.png) (Ref: docs.docker.com)
 
 
 ### Installation  <a name="installation"></a>
@@ -136,7 +136,7 @@ docker container rm -f [containerName or containerID]
 
 ### Docker Container  <a name="container"></a>
 
-![image](https://user-images.githubusercontent.com/10358317/113183556-730be680-9254-11eb-8bdd-84c5cf5b86c6.png)
+![image](https://user-images.githubusercontent.com/10358317/113183556-730be680-9254-11eb-8bdd-84c5cf5b86c6.png) (Ref: docker-handbook-borosan)
 
 - When we create the container from image, in every container, there is an application that is set to run by default app. 
     - When this app runs, container runs.
@@ -160,7 +160,7 @@ Goto: [App: Creating First Docker Image and Container using Docker File](https:/
 
 ### Docker Container: Life Cycle
 
-![image](https://user-images.githubusercontent.com/10358317/113186436-f67b0700-9257-11eb-9b2e-41ccf056e88b.png)
+![image](https://user-images.githubusercontent.com/10358317/113186436-f67b0700-9257-11eb-9b2e-41ccf056e88b.png) (Ref: life-cycle-medium)
 
 ```
 e.g. [imageName]=alpine, busybox, nginx, ubuntu, etc.
@@ -177,13 +177,13 @@ docker container unpause [containerId or containerName]
 - Images are R/O.
 - When containers are created, new R/W thin layer is created.
 
-![image](https://user-images.githubusercontent.com/10358317/113183883-d8f86e00-9254-11eb-994b-30c17fe9429b.png)
+![image](https://user-images.githubusercontent.com/10358317/113183883-d8f86e00-9254-11eb-994b-30c17fe9429b.png) (Ref: docs.docker.com)
 
 ### Docker Volumes: Why Volumes needed?
-- Persistence
+- WhenPersistence
 - e.g. Create log file in the container. When it is killed, log file also killed. So we use Volumes!
 
-![image](https://user-images.githubusercontent.com/10358317/113184189-2d035280-9255-11eb-9409-578ad1f2bd4b.png)
+![image](https://user-images.githubusercontent.com/10358317/113184189-2d035280-9255-11eb-9409-578ad1f2bd4b.png) (Ref: udemy-course:adan-zye-docker)
 
 ### Docker Volumes/Bind Mounts  <a name="volume"></a>
 
@@ -386,7 +386,7 @@ One of the Container Orchestration tool:
     - Kubernetes,
     - Mesos
 
-![image](https://user-images.githubusercontent.com/10358317/113186661-3b06a280-9258-11eb-9bb8-3ad38d3c55fb.png)
+![image](https://user-images.githubusercontent.com/10358317/113186661-3b06a280-9258-11eb-9bb8-3ad38d3c55fb.png) (Ref: udemy-course:adan-zye-docker)
 
 ### Docker Stack / Docker Service  <a name="stack"></a>
 - With Docker Stack, multiple services can be created with one-file.
@@ -420,13 +420,24 @@ Goto: [App: Docker Swarm using PlayWithDocker, Creating Swarm Cluster: 3 x WordP
 
 ## Play With Docker  <a name="playWithDocker"></a>
 
+- https://labs.play-with-docker.com/
+
 ![image](https://user-images.githubusercontent.com/10358317/113187037-ae101900-9258-11eb-9789-781ca2f6a464.png)
 
 ## Docker Commands Cheatsheet <a name="cheatsheet"></a>
 
 Goto: [Docker Commands Cheatsheet](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerCommandCheatSheet.md)
 
+## Other Resources:
+- https://docs.docker.com/get-started/
+- https://github.com/wsargent/docker-cheat-sheet
+- https://dockerlabs.collabnix.com/workshop/docker/
+
 ## References  <a name="references"></a>
 - [Docker.com](https://www.docker.com/)
+- [docs.docker.com](https://docs.docker.com/get-started/overview/)
+- [docker-handbook-borosan](https://borosan.gitbook.io/docker-handbook/docker-images)
+- [life-cycle-medium](https://medium.com/future-vision/docker-lifecycle-tutorial-and-quickstart-guide-c5fd5b987e0d)
 - [Infoworld](https://www.infoworld.com/article/3310941/why-you-should-use-docker-and-containers.html)
 - [ItNext](https://itnext.io/getting-started-with-docker-facts-you-should-know-d000e5815598)
+- [udemy-course:adan-zye-docker](https://www.udemy.com/course/adan-zye-docker/)
