@@ -5,10 +5,8 @@ This scenario shows how to run multi-containers in cluster using Docker Stack fi
 - Copying docker-compose.yml file into the Manager node to create Docker Service
 - Creating Docker Service and showing the service's details
 - Going to one of the Worker Node, stepping into the container, showing the connection using ping.
-- Removing one of the container in the Worker Node and showing the recreation by Docker Service
--
-- Scaling the Docker Service
-- Updating all containers using Docker Service 
+- Removing one of the container in the Worker Node and showing the recreation by Docker Service.
+- Stopping and removing all containers in the Docker Service.
 
 #### Note
 ```
@@ -165,6 +163,28 @@ ifconfig
 ping 10.0.1.2
 ping 10.0.1.3
 ```
-
 ![image](https://user-images.githubusercontent.com/10358317/113695846-9d84f600-96d1-11eb-8ff5-a65188ea4bb5.png)
+
+- Go to Node5 and stop containers which is running on Node5 twice times:
+```
+docker container ls -a
+docker container stop aeb
+docker container ls -a (after stopping container, automatically created by docker service using docker-compose.yml)
+docker container ls b7f
+docker container ls -a
+```
+![image](https://user-images.githubusercontent.com/10358317/113697092-0c168380-96d3-11eb-99f7-f4db1ea846e9.png)
+
+- Go to Node1 (ManagerNode) to see docker containers' status. On Node5, 'WordPress' container is stopped and created twice times. This works with Docker Service using docker-compose.yml:
+```
+docker stack ps firststack
+```
+![image](https://user-images.githubusercontent.com/10358317/113697229-35cfaa80-96d3-11eb-922d-19d2bf0bb2f4.png)
+
+- Run on terminal to stop and remove containers in Docker Service:
+```
+docker stack rm firststack
+docker node ls
+```
+![image](https://user-images.githubusercontent.com/10358317/113697847-0ff6d580-96d4-11eb-870e-aaa1059ffe37.png)
 
