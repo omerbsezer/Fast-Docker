@@ -1,9 +1,7 @@
 # Fast-Docker
-This repo aims to cover Docker details (Dockerfile, Image, Container, Commands, Volumes, Docker-Compose, Networks, Swarm, Stack), example usage scenarios (applications) in a nutshell.
+There are many Docker tutorials and courses in the internet. This repo aims to cover Docker details (Dockerfile, Image, Container, Commands, Volumes, Docker-Compose, Networks, Swarm, Stack) fastly, and possible example usage scenarios (applications) in a nutshell. Possible usage scenarios are aimed to update over time.App
 
-**Keywords:** Docker Image, Dockerfile, Containerization, Docker-Compose File, Swarm
-
-**NOTE: This tutorial is only for education purpose. All related references are listed at the end of the file.**
+**Keywords:** DockerImage, Dockerfile, Containerization, Docker-Compose, Swarm, Service, Cheatsheet
 
 # Quick Look (Possible Usage Scenarios)
 - [App: Creating First Docker Image and Container using Docker File](https://github.com/omerbsezer/Fast-Docker/blob/main/FirstImageFirstContainer.md)
