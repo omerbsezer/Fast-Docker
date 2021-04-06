@@ -11,7 +11,6 @@ This repo aims to cover Docker details (Dockerfile, Image, Container, Commands, 
 - [App: Binding Mount to Container](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerVolume.md#app_mount)
 - [App: Docker Compose and Creating WordPress Container depends on MySql Container](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerCompose.md)
 - [App: Docker Swarm using PlayWithDocker, Creating Swarm Cluster: 3 x WordPress Containers and 1 x MySql Container](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerStackService.md)
-- [App: Updating Docker Swarm Service]()
 - [App: Copying Docker Volume Content to Host PC]()
 - [App: Creating New Network Switch and (Dis)Connecting Containers]()
 - [Docker Commands Cheatsheet](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerCommandCheatSheet.md)
@@ -398,6 +397,19 @@ docker service create --name testservice --replicas=5 -p 8080:80 nginx
 docker service ps testservice
 docker service scale testservice=10
 docker service inspect testservice
+```
+#### Scaling
+```
+docker service scale testservice=10 (scaling up the containers to 10 replicas)
+```
+#### Updating
+```
+docker service update --detach --update-delay 5s --update-parallelism 2 --image nginx:v2 testservice (previous state: testservice created, now updating)
+docker service update --help (to see the parameters of update)
+```
+#### Rollbacking
+```
+docker service rollback --detach testservice (rollbacking to previous state)
 ```
 
 ![image](https://user-images.githubusercontent.com/10358317/113303356-4a8df600-9301-11eb-9114-38872ca01f29.png)
