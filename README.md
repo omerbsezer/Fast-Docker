@@ -9,7 +9,7 @@ This repo aims to cover Docker details (Dockerfile, Image, Container, Commands, 
 - [App: Binding Mount to Container](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerVolume.md#app_mount)
 - [App: Docker Compose and Creating WordPress Container depends on MySql Container](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerCompose.md)
 - [App: Docker Swarm using PlayWithDocker, Creating Swarm Cluster: 3 x WordPress Containers and 1 x MySql Container](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerStackService.md)
-- [App: Running Docker Free Local Registry, Tagging Container, Pushing to Local Registry, Pulling From Local Registry]()
+- [App: Running Docker Free Local Registry, Tagging Container, Pushing to Local Registry, Pulling From Local Registry and Deleting Images from Local Registry](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerLocalRegistry.md)
 - [App: Copying Docker Volume Content to Host PC]()
 - [App: Creating New Network Switch and (Dis)Connecting Containers]()
 - [Docker Commands Cheatsheet](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerCommandCheatSheet.md)
@@ -114,7 +114,7 @@ Why should we use Docker? "Docker changed the way applications used to build and
 
 ![image](https://user-images.githubusercontent.com/10358317/113183434-4eb00a00-9254-11eb-9275-9b1ccf705d5b.png) 
 
-Goto: [App: Running Docker Free Local Registry, Tagging Container, Pushing to Local Registry, Pulling From Local Registry]()
+[App: Running Docker Free Local Registry, Tagging Container, Pushing to Local Registry, Pulling From Local Registry and Deleting Images from Local Registry](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerLocalRegistry.md)
 
 ### Docker Command Structure  <a name="command"></a>
 
