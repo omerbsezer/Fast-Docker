@@ -11,7 +11,6 @@ This repo aims to cover Docker details (Dockerfile, Image, Container, Commands, 
 - [App: Creating Docker Swarm Cluster With 5 PCs using PlayWithDocker : 3 x WordPress Containers and 1 x MySql Container using Docker-Compose File](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerStackService.md)
 - [App: Running Docker Free Local Registry, Tagging Image, Pushing Image to the Local Registry, Pulling Image From Local Registry and Deleting Images from Local Registry](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerLocalRegistry.md)
 - [App: Transferring Content between Host PC and Docker Container](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerTransferringContent.md)
-- [App: Creating New Network Switch and (Dis)Connecting Containers]()
 - [Docker Commands Cheatsheet](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerCommandCheatSheet.md)
 
 # Table of Contents
@@ -25,18 +24,19 @@ This repo aims to cover Docker details (Dockerfile, Image, Container, Commands, 
     - [Docker Engine (Deamon, REST API, CLI)](#engine)
     - [Docker Registry and Docker Hub](#registry)
     - [Docker Command Structure](#command)
+    - [Docker Container](#container)
     - [Docker Volumes/Bind Mounts](#volume)
     - [Docker Network](#network)
     - [Docker Log](#log)
     - [Docker Stats/Memory-CPU Limitations](#stats)
     - [Docker File](#file)
     - [Docker Image](#image)
-    - [Docker Container](#container)
     - [Docker Compose](#compose)
     - [Docker Swarm](#swarm)
-    - [Docker Stack](#stack)
+    - [Docker Stack / Docker Service](#stack)
 - [Play With Docker](#playWithDocker)
 - [Docker Commands Cheatsheet](#cheatsheet)
+- [Other Resources](#resource)
 - [References](#references)
 
 ## Motivation <a name="motivation"></a>
@@ -156,7 +156,7 @@ docker load -i .\hello.tar
 
 Goto: [App: Creating First Docker Image and Container using Docker File](https://github.com/omerbsezer/Fast-Docker/blob/main/FirstImageFirstContainer.md)
 
-### Docker Container: Life Cycle
+#### Docker Container: Life Cycle
 
 ![image](https://user-images.githubusercontent.com/10358317/113186436-f67b0700-9257-11eb-9b2e-41ccf056e88b.png) (Ref: life-cycle-medium)
 
@@ -170,7 +170,7 @@ docker container pause [containerId or containerName]
 docker container unpause [containerId or containerName]
 ```
 
-### Docker Container: Union File System  <a name="container-filesystem"></a>
+#### Docker Container: Union File System  <a name="container-filesystem"></a>
 - Images are read only (R/O).
 - When containers are created, new read-write (R/W) thin layer is created.
 
@@ -229,6 +229,12 @@ docker container run --name c2 --net bridge1 alpine sh
 docker network connect bridge1 c2
 docker network inspect bridge1
 docker network disconnect bridge1 c2
+```
+
+- Creating new netork using customized network parameters:
+
+```
+docker network create --driver=bridge --subnet=10.10.0.0/16 --ip-range=10.10.10.0/24 --gateway=10.10.10.10 newbridge
 ```
 
 ![image](https://user-images.githubusercontent.com/10358317/113184949-1b6e7a80-9256-11eb-9a0c-fe5c62404a06.png) (Ref: Docker.com)
@@ -308,6 +314,21 @@ RUN apt-get install default-jre -y
 WORKDIR /myapp
 COPY /myapp .
 CMD ["java","hello"]
+```
+
+- Multistage Docker File (Creating temporary container):
+    - In the example, JDK (Java Development Kit) based temporary image (~440MB) container is created for compilation.
+    - Compiled files are copied into JRE (Java Runtime Environment) based image (~145MB). Finally, we have only JRE based image.
+```
+FROM mcr.microsoft.com/java/jdk:8-zulu-alpine AS compiler
+COPY /myapp /usr/src/myapp
+WORKDIR /usr/src/myapp
+RUN javac hello.java
+
+FROM mcr.microsoft.com/java/jre:8-zulu-alpine 
+WORKDIR /myapp
+COPY --from=compiler /usr/src/myapp .
+CMD ["java", "hello"]
 ```
 
 ### Docker Image  <a name="image"></a>
@@ -439,7 +460,7 @@ Goto: [App: Creating Docker Swarm Cluster With 5 PCs using PlayWithDocker : 3 x 
 
 Goto: [Docker Commands Cheatsheet](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerCommandCheatSheet.md)
 
-## Other Resources:
+## Other Resources  <a name="resource"></a>:
 - https://docs.docker.com/get-started/
 - https://github.com/wsargent/docker-cheat-sheet
 - https://dockerlabs.collabnix.com/workshop/docker/
