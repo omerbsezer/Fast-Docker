@@ -231,7 +231,7 @@ docker network inspect bridge1
 docker network disconnect bridge1 c2
 ```
 
-- Creating new netork using customized network parameters:
+- Creating new network using customized network parameters:
 
 ```
 docker network create --driver=bridge --subnet=10.10.0.0/16 --ip-range=10.10.10.0/24 --gateway=10.10.10.10 newbridge
