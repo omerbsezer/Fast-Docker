@@ -54,7 +54,18 @@ docker cp [containerName]:[containerPath] [hostPath]
 ```
 
 ### Copying content from existed Docker Volume object to host PC
+- Create a temporary container which is binded to volume
+- Copy the content from container to host PC
 
+```
+docker volume create test
+docker container run --name mywebserver -d -p 80:80 -v test:/usr/share/nginx/html nginx
+docker container create --name temp1 -v test:/temp busybox ('temp1': temporary busybox container which is binded to 'test' volume )
+docker cp temp1:/temp "C:\Docker\Webpage3" (copying from temporary container to host PC)
+docker cp [containerName]:[containerPath] [hostPath] 
+```
+
+![image](https://user-images.githubusercontent.com/10358317/113866155-418f9f80-97ad-11eb-8831-3aad181c94bf.png)
 
 ### Copying content from existed Docker Volume object to remote PC
 - Creatíng archive to standard output using smallest image 'busybox' (1.23MB)
