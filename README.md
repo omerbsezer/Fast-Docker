@@ -253,6 +253,14 @@ docker container run --name c1 --net host alpine sh
 
 ![image](https://user-images.githubusercontent.com/10358317/113185192-6e483200-9256-11eb-8cb4-d8aa170d1a1e.png) (Ref: Docker.com)
 
+#### Port Mapping/Publish:
+- Mapping Host PC's port to container port
+ 
+ ```
+-p [hostPort]:[containerPort], --publish [hostPort]:[containerPort] e.g. -p 8080:80, -p 80:80
+docker container run --name mywebserver -d -p 80:80 nginx
+```
+
 ### Docker Log  <a name="log"></a>
 
 - Docker Logs show /dev/stdout, /dev/stderror
