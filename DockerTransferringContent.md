@@ -13,7 +13,7 @@ This scenario shows how to transfer content between host and container:
 ### Copying content from host PC to container
 
 #### Using image file (COPY command)
-- Copying app content into the image using image file (e.g. https://github.com/omerbsezer/Fast-Docker/edit/main/FirstImageFirstContainer.md)
+- Copying app content into the image using image file (e.g. [FirstImageFirstContainer.md](https://github.com/omerbsezer/Fast-Docker/blob/main/FirstImageFirstContainer.md))
 ```
 FROM python:alpine3.7
 COPY . /app
@@ -24,7 +24,7 @@ CMD python ./index.py
 ```
 
 #### Using bind mount/volume
-- Binding mount and volume: e.g. https://github.com/omerbsezer/Fast-Docker/blob/main/DockerVolume.md
+- Binding mount and volume: e.g. [DockerVolume](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerVolume.md)
 - Using '-v [volumeName]:[containerDirectoryPath]' or '-v [hostDirectory]:[containerDirectoryPath]' 
 
 ```
