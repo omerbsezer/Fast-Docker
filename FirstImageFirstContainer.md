@@ -1,11 +1,11 @@
 ## App: First Image and First Container
 
-This scenario shows how to build image from file, how to run docker container from image.
+This scenario shows how to build an image from Dockerfile, how to run a docker container from this image.
 
 ### Steps
 
-- Create directory (“example”) on your Desktop.
-- Create file (“index.py”) in “example” directory (copy from below) (this is simple Flask that returns “Hello World” on the browser).
+- Create a directory (“example”) on your Desktop.
+- Create a file (“index.py”) in the “example” directory (copy from below) (this is a simple Flask that returns “Hello World” on the browser).
 
 ```
 from flask import Flask
@@ -17,7 +17,7 @@ if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int("5000"), debug=True)
 ```
 
-- Create “Dockerfile” (there is no extension) in “example” directory (Copy from below) (it copies to /app directory in container, run requirements.txt, expose 5000 port and run python app).
+- Create “Dockerfile” (there is no extension) in the “example” directory (Copy from below) (it copies to /app directory in the container, run requirements.txt, expose 5000 port and run python app).
 
 ```
 FROM python:alpine3.7
@@ -34,14 +34,13 @@ CMD python ./index.py
 flask
 ```
 
-
 - Now, we have 3 files in the “example” directory.
 
  ![image](https://user-images.githubusercontent.com/10358317/113274100-99299900-92dd-11eb-9431-a1839dd0b280.png)
 
 
 
-- Run on terminal which is open in “example” directory, “docker build --tag my-python-app .” (creating image from Docker file and image name is “my-python-app”, it runs in order, first download python image which is run on Alpine, finally it is prepared to run “CMD python ./index.py” while running container).
+- Run on the terminal which is open in “example” directory, “docker build --tag my-python-app .” (creating an image from Docker file and the image name is “my-python-app”, it runs in order, first download python image which is run on Alpine, finally it is prepared to run “CMD python ./index.py” while running container).
 
 ```
 docker build --tag my-python-app .
@@ -59,7 +58,7 @@ docker run --name python-app -p 5000:5000 my-python-app
 ![image](https://user-images.githubusercontent.com/10358317/113274079-92028b00-92dd-11eb-9902-da00b07602bb.png)
 
 
-- Open Browser (http://127.0.0.1:5000) to see the result. You created first Docker image and run first container. Congratulations! 😊 
+- Open Browser (http://127.0.0.1:5000) to see the result. You created the first Docker image and run the first container. Congratulations! 😊 
 
  ![image](https://user-images.githubusercontent.com/10358317/113274597-2967de00-92de-11eb-8a76-1b1adde27f3a.png)
 
