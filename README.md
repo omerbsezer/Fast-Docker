@@ -1,7 +1,7 @@
 # Fast-Docker
 This repo aims to cover Docker details (Dockerfile, Image, Container, Commands, Volumes, Docker-Compose, Networks, Swarm, Stack) fastly, and possible example usage scenarios (HowTo: Applications) in a nutshell. Possible usage scenarios are aimed to update over time.
 
-**Keywords:** DockerImage, Dockerfile, Containerization, Docker-Compose, Swarm, Service, Cheatsheet
+**Keywords:** Docker-Image, Dockerfile, Containerization, Docker-Compose, Docker-Volume, Docker-Network, Docker-Swarm, Service, Cheatsheet.
 
 # Quick Look (HowTo)
 - [App: Creating First Docker Image and Container using Docker File](https://github.com/omerbsezer/Fast-Docker/blob/main/FirstImageFirstContainer.md)
@@ -49,7 +49,7 @@ Why should we use Docker? "Docker changed the way applications used to build and
 - CI/CD Integration Testing: We can handle unit testing, component testing with Jenkins. What if integration testing? 
     - Extending Chain: Jenkins- Docker Image - Docker Container - Automatic testing
 - Are our SW products portable to carry on different PC easily? (especially in the development & testing phase)
-
+- Developing, testing, maintenance of code as one Monolithic App could be problematic when the app needs more features/services. It is required to convert one big monolithic app into microservices. 
 
 ### Benefits <a name="benefits"></a>
 
@@ -136,11 +136,11 @@ docker container rm -f [containerName or containerID]
 
 ![image](https://user-images.githubusercontent.com/10358317/113183556-730be680-9254-11eb-8bdd-84c5cf5b86c6.png) (Ref: docker-handbook-borosan)
 
-- When we create the container from image, in every container, there is an application that is set to run by default app. 
-    - When this app runs, container runs.
-    - When this default app finished/stopped, container stopped. 
+- When we create the container from the image, in every container, there is an application that is set to run by default app. 
+    - When this app runs, the container runs.
+    - When this default app finishes/stops, the container stops. 
 - There could be more than one app in docker image (such as: sh, ls, basic commands)
-- When the Docker container is started, it is allowed that a single application is configured to run automatically
+- When the Docker container is started, it is allowed that a single application is configured to run automatically.
 
 ```
 docker container run --name mywebserver -d -p 80:80 -v test:/usr/share/nginx/html nginx
@@ -177,16 +177,16 @@ docker container unpause [containerId or containerName]
 ![image](https://user-images.githubusercontent.com/10358317/113183883-d8f86e00-9254-11eb-994b-30c17fe9429b.png) (Ref: docs.docker.com)
 
 ### Docker Volumes: Why Volumes needed?
-- Containers do not save the changings when removed, if there is not any binding to volume/mount. 
+- Containers do not save the changes/logs when erased if there is not any binding to volume/mount. 
 - For persistence, volumes/mounts MUST be used. 
-- e.g. Creating log file in the container. When the container is removed, log file also removed with container. So volumes/binding mounts MUST be used!
+- e.g. Creating a log file in the container. When the container is deleted, the log file also deleted with the container. So volumes/binding mounts MUST be used to provide persistence!
 
 ![image](https://user-images.githubusercontent.com/10358317/113184189-2d035280-9255-11eb-9409-578ad1f2bd4b.png) (Ref: udemy-course:adan-zye-docker)
 
 ### Docker Volumes/Bind Mounts  <a name="volume"></a>
 
-- Volumes and Bind Mounts used for logs, inputs, outputs, etc..
-- When volumes bind to directory in the container, this directory and volume are synchronised.
+- Volumes and binding mounts must be used for saving logs, output files, and using input files.
+- When volumes bind to the directory in the container, this directory and volume are synchronised.
 
 ```
 docker volume create [volumeName]
@@ -231,7 +231,7 @@ docker network inspect bridge1
 docker network disconnect bridge1 c2
 ```
 
-- Creating new network using customized network parameters:
+- Creating a new network using customized network parameters:
 
 ```
 docker network create --driver=bridge --subnet=10.10.0.0/16 --ip-range=10.10.10.0/24 --gateway=10.10.10.10 newbridge
@@ -255,12 +255,12 @@ docker container run --name c1 --net host alpine sh
 ![image](https://user-images.githubusercontent.com/10358317/113185105-52dd2700-9256-11eb-84f2-ef1880eb4f4c.png) (Ref: Docker.com)
 
 #### Docker Network: Overlay 
-- Containers which work on different PC/host, can work like same network (--net overlay)
+- Containers which work on different PC/host can work as the same network (--net overlay)
 
 ![image](https://user-images.githubusercontent.com/10358317/113185192-6e483200-9256-11eb-8cb4-d8aa170d1a1e.png) (Ref: Docker.com)
 
 #### Port Mapping/Publish:
-- Mapping Host PC's port to container port
+- Mapping Host PC's port to container port:
  
  ```
 -p [hostPort]:[containerPort], --publish [hostPort]:[containerPort] e.g. -p 8080:80, -p 80:80
@@ -353,7 +353,7 @@ Goto: [App: Creating First Docker Image and Container using Docker File](https:/
 ### Docker Compose  <a name="compose"></a>
 - Define and run multi-container applications with Docker.
 - Easy to create Docker components using one file: Docker-Compose file
-- It is yaml file that defines components: 
+- It is a YAML file that defines components: 
     - Services, 
     - Volumes, 
     - Networks, 
@@ -398,7 +398,8 @@ networks:
     driver: bridge
 ```
 
-- After saving file as "docker-compose.yml", run following commands where docker-compose file is, to create containers, volumes, networks:
+- After saving the file as "docker-compose.yml", run the following commands where the docker-compose file is, to create containers, volumes, networks:
+
 ```
 docker-compose up -d
 docker-compose down
@@ -421,10 +422,10 @@ One of the Container Orchestration tool:
 ![image](https://user-images.githubusercontent.com/10358317/113186661-3b06a280-9258-11eb-9bb8-3ad38d3c55fb.png) (Ref: udemy-course:adan-zye-docker)
 
 ### Docker Stack / Docker Service  <a name="stack"></a>
-- With Docker Stack, multiple services can be created with one-file.
-- It is like Docker-Compose file but it has more features than Docker-compose file: update_config, replicas.
+- With Docker Stack, multiple services can be created with one file.
+- It is like a Docker-Compose file but it has more features than a Docker-compose file: update_config, replicas.
 - But it is running on when Docker Swarm mode is activated.
-- Network must be overlay.
+- Network must be 'overlay'.
 
 #### Creating, Listing, Inspecting
 ```
