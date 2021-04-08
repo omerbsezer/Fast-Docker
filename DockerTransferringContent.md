@@ -13,7 +13,7 @@ This scenario shows how to transfer content between host and container:
 ### Copying content from host PC to container
 
 #### Using image file (COPY command)
-- Copying app content into the image using image file (e.g. [FirstImageFirstContainer.md](https://github.com/omerbsezer/Fast-Docker/blob/main/FirstImageFirstContainer.md))
+- Copying app content into the image using the image file (e.g. [FirstImageFirstContainer.md](https://github.com/omerbsezer/Fast-Docker/blob/main/FirstImageFirstContainer.md))
 ```
 FROM python:alpine3.7
 COPY . /app
@@ -54,7 +54,7 @@ docker cp [containerName]:[containerPath] [hostPath]
 ```
 
 ### Copying content from existed Docker Volume object to host PC
-- Create a temporary container which is binded to volume
+- Create a temporary container that is connected to the volume
 - Copy the content from container to host PC
 
 ```
@@ -69,7 +69,7 @@ docker cp [containerName]:[containerPath] [hostPath]
 
 ### Copying content from existed Docker Volume object to remote PC
 - Creatíng archive to standard output using smallest image 'busybox' (1.23MB)
-- ssh to target host and extract files in destination container volume
+- SSH to target host and extract files in destination container volume
 
 ```
 (CONTAINER=myproject_db_1 REMOTE_HOST=newhost DIR=/var/lib/mysql; \
