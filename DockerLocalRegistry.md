@@ -1,6 +1,6 @@
 ## App: Running Docker Free Local Registry, Tagging Container, Pushing to Local Registry, Pulling From Local Registry
 
-This scenario shows how to run Docker local free registry, to tag container, to push into local registry and to pull from registry.
+This scenario shows how to run Docker local free registry, tag container, push into the local registry and pull from the registry.
 
 ### Steps
 - Pull 'Registry' image from Docker Hub:
@@ -17,13 +17,13 @@ docker container run -d -p 5000:5000 --restart always --name localregistry -e RE
 ![image](https://user-images.githubusercontent.com/10358317/113854337-0e461400-979f-11eb-9d33-b0eddc9b479f.png)
 
 
-- Open browser: (localregistry runs on 127.0.0.1:5000)
+- Open a browser: (localregistry runs on 127.0.0.1:5000)
 ```
 http://127.0.0.1:5000/v2/_catalog
 ```
 ![image](https://user-images.githubusercontent.com/10358317/113844968-4f392b00-9795-11eb-8c17-8639d518e1af.png)
 
-- To push image to localregistry, firstly change the name of image using 'tag', add '127.0.0.1:5000/' as prefix of the image to push localregistry:
+- To push the image to localregistry, firstly change the name of the image using 'tag', add '127.0.0.1:5000/' as a prefix of the image to push localregistry:
 ```
 docker image tag [sourceImageName] [targetImageName]
 ```
@@ -37,7 +37,7 @@ docker image push 127.0.0.1:5000/busybox:latest
 ```
 ![image](https://user-images.githubusercontent.com/10358317/113845465-d6869e80-9795-11eb-8c8a-4bab2261e153.png)
 
-- Refresh browser to see latest status:
+- Refresh the browser to see latest status:
 
 ![image](https://user-images.githubusercontent.com/10358317/113846436-bf947c00-9796-11eb-8527-d7a0799b3359.png)
 
@@ -51,7 +51,7 @@ docker image pull 127.0.0.1:5000/busybox:latest
 
 - There are different ways of deleting images from localregistry: 
   - using curl DELETE,  (https://betterprogramming.pub/cleanup-your-docker-registry-ef0527673e3a)
-  - removing file from filesystem,
+  - removing the file from the filesystem,
   - running rm command in the container (I prefer this method, it absolutely works):
   
 ```
