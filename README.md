@@ -36,7 +36,7 @@ This repo aims to cover Docker details (Dockerfile, Image, Container, Commands, 
     - [Docker Stack / Docker Service](#stack)
 - [Play With Docker](#playWithDocker)
 - [Docker Commands Cheatsheet](#cheatsheet)
-- [Other Resources](#resource)
+- [Other Useful Resources Related Docker ](#resource)
 - [References](#references)
 
 ## Motivation <a name="motivation"></a>
@@ -465,10 +465,13 @@ Goto: [App: Creating Docker Swarm Cluster With 5 PCs using PlayWithDocker : 3 x 
 
 Goto: [Docker Commands Cheatsheet](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerCommandCheatSheet.md)
 
-## Other Resources  <a name="resource"></a>:
+## Other Useful Resources Related Docker  <a name="resource"></a>:
 - https://docs.docker.com/get-started/
 - https://github.com/wsargent/docker-cheat-sheet
 - https://dockerlabs.collabnix.com/workshop/docker/
+- All-in-one Docker image for Deep Learning: https://github.com/floydhub/dl-docker
+- Docker Tutorial for Beginners [FULL COURSE in 3 Hours]- Youtube: https://www.youtube.com/watch?v=3c-iBn73dDE&t=6831s
+- Docker and Kubernetes Tutorial | Full Course [2021] - Youtube: https://www.youtube.com/watch?v=bhBSlnQcq2k&t=3088s
 
 ## References  <a name="references"></a>
 - [Docker.com](https://www.docker.com/)
