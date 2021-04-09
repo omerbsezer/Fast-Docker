@@ -320,6 +320,10 @@ CMD ["java","hello"]
     - In the example, JDK (Java Development Kit) based temporary image (~440MB) container is created for compilation.
     - Compiled files are copied into JRE (Java Runtime Environment) based image (~145MB). Finally, we have only JRE based image.
 ```
+COPY --from=<stage 1> stage1/src stage2/destination
+```
+- In the example below, 'compiler' is 'stage1'.
+```
 FROM mcr.microsoft.com/java/jdk:8-zulu-alpine AS compiler
 COPY /myapp /usr/src/myapp
 WORKDIR /usr/src/myapp
