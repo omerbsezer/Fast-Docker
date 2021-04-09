@@ -465,7 +465,6 @@ Goto: [Docker Commands Cheatsheet](https://github.com/omerbsezer/Fast-Docker/blo
 - https://docs.docker.com/get-started/
 - https://github.com/wsargent/docker-cheat-sheet
 - https://dockerlabs.collabnix.com/workshop/docker/
-- https://www.youtube.com/watch?v=bhBSlnQcq2k&t=13716s (Docker and Kubernetes Tutorial | Full Course)
 
 ## References  <a name="references"></a>
 - [Docker.com](https://www.docker.com/)
