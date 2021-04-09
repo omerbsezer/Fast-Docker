@@ -469,7 +469,8 @@ Goto: [Docker Commands Cheatsheet](https://github.com/omerbsezer/Fast-Docker/blo
 - Original Docker Document: https://docs.docker.com/get-started/
 - Cheatsheet: https://github.com/wsargent/docker-cheat-sheet
 - Workshop: https://dockerlabs.collabnix.com/workshop/docker/
-- All-in-one Docker image for Deep Learning: https://github.com/floydhub/dl-docker
+- All-in-one Docker Image for Deep Learning: https://github.com/floydhub/dl-docker
+- Various Dockerfiles for Different Purposes: https://github.com/jessfraz/dockerfiles
 - Docker Tutorial for Beginners [FULL COURSE in 3 Hours]- Youtube: https://www.youtube.com/watch?v=3c-iBn73dDE&t=6831s
 - Docker and Kubernetes Tutorial | Full Course [2021] - Youtube: https://www.youtube.com/watch?v=bhBSlnQcq2k&t=3088s
 
