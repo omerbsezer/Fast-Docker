@@ -1,13 +1,15 @@
 ## Docker Commands Cheatsheet
 
 #### first try
-```docker run hello-world
+```
+docker run hello-world
 docker info
 docker version
 docker --help
 ```
 #### listing (ls=listing)
-```docker images ls
+```
+docker images ls
 docker container ls -a
 docker volume ls
 docker network ls
@@ -15,7 +17,8 @@ docker container ps -a
 docker ps
 ```
 #### image pull from, push to registry
-```docker image pull alpine
+```
+docker image pull alpine
 docker image push alpine
 ```
 #### creating and entering container (--name=name of new container, -it=interactive mode, sh=shell)
@@ -28,7 +31,8 @@ docker container start 30e
 docker container stop 30e
 ```
 #### entering container (8aa=containerID, webserv=containerName, sh=shell)
-```docker container exec -it webserv sh
+```
+docker container exec -it webserv sh
 docker container run --name c1 -it busybox sh  #create and enter in 
 docker exec -it 8aa sh
 ```
@@ -89,15 +93,15 @@ docker image build -t hello . (run this command where “Dockerfile” is)
 #### image save and load (t=tag, i=input, o=output)
 ```
 docker save -o <path for created tar file> <image name>
-docker save -o merhaba.tar deneme/merhaba
+docker save -o [imageName].tar [imageName]
 docker load -i <path to docker image tar file>
-docker load -i .\merhaba.tar
+docker load -i .\[imageName].tar
 ```
 #### env, copy from container to host 
 ```
-docker container run --net host tdfnext/hwservice
+docker container run --net host [imageName]
 ENV USER="space"
-docker container run -d -d p 80:80 --name hd2 -e USER="Omer" hello-world
+docker container run -d -d p 80:80 --name hd2 -e USER="UserName" [imageName]
 docker cp host_path:/usr/src/app .
 ```
 #### multistage image File ##
@@ -195,8 +199,8 @@ docker service rollback -d websrv (rollback to last status of websrv)
 ```
 #### secret (to work with secrets, swarm mode must be active)
 ```
-notepad username.txt (create username.txt that include username)
-notepad password.txt (create password.txt that include password) 
+notepad or nano username.txt (create username.txt that include username)
+notepad or nano password.txt (create password.txt that include password) 
 docker secret create username .\username.txt (create username secret object)
 docker secret create password .\password.txt
 docker secret inspect password
