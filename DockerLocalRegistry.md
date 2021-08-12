@@ -85,4 +85,5 @@ docker tag mcr.microsoft.com/windows/nanoserver:1909 {IPofRegistryServer}:5000/w
 docker push {IPofRegistryServer}:5000/windows-nanoserver
 ```
 - Browsing: IP:5000/v2/_catalog
+
 ![image](https://user-images.githubusercontent.com/10358317/129181056-7a0040ac-cc08-4298-a38d-49c1f0c8d355.png)
