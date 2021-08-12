@@ -69,3 +69,20 @@ docker exec -it localregistry rm -rf /var/lib/registry/docker/registry/v2/reposi
 ![image](https://user-images.githubusercontent.com/10358317/113855229-16eb1a00-97a0-11eb-93f8-6911557ac502.png)
 
 ![image](https://user-images.githubusercontent.com/10358317/113855252-20748200-97a0-11eb-952b-df5efc69eea8.png)
+
+- Docker registy stores both Windows and Linux Container at the same time:
+```
+docker run -d -p 5000:5000 --restart=always --name registry -v /home/docker_registry:/var/lib/registry -e REGISTRY_STORAGE_DELETE_ENABLED=true -e REGISTRY_VALIDATION_DISABLED=true -e REGISTRY_HTTP_ADDR=0.0.0.0:5000 registry:2
+```
+- Switch Docker Desktop to Windows Container
+- Please add  "IP:5000" in your Docker Desktop (Settings>Docker Engine>"insecure-registries")
+- Tagging Image: 
+```
+docker tag mcr.microsoft.com/windows/nanoserver:1909 {IPofRegistryServer}:5000/windows-nanoserver
+```
+- Pushing Image: 
+```
+docker push {IPofRegistryServer}:5000/windows-nanoserver
+```
+- Browsing: IP:5000/v2/_catalog
+![image](https://user-images.githubusercontent.com/10358317/129181056-7a0040ac-cc08-4298-a38d-49c1f0c8d355.png)
