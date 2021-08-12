@@ -1,6 +1,6 @@
 ## App: Creating Docker Container using Dockerfile to Build C++ on Windows with Visual Studio Compiler
 
-- In this scenario, we'll create Docker file from scratch that includes visual studio compiler, python3.9, choco, conan, cmake, git
+- In this scenario, we'll create Docker file from scratch that includes visual studio compiler, python, choco, conan, cmake, git
 - Please in your PC, release minimum 20GB-25GB of diskspace (because base image of Win-Server-Core with .Net is ~12GB). 
 - Switch to your Docker Desktop to Windows Containers
 - Create Dockerfile that includes following content: 
