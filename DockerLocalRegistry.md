@@ -16,6 +16,10 @@ docker container run -d -p 5000:5000 --restart always --name localregistry -e RE
 
 ![image](https://user-images.githubusercontent.com/10358317/113854337-0e461400-979f-11eb-9d33-b0eddc9b479f.png)
 
+- Run registry container with binding mount (-v) and without getting error 500 (REGISTRY_VALIDATION_DISABLED=true):
+```
+docker run -d -p 5000:5000 --restart=always --name registry -v /home/docker_registry:/var/lib/registry -e REGISTRY_STORAGE_DELETE_ENABLED=true -e REGISTRY_VALIDATION_DISABLED=true -e REGISTRY_HTTP_ADDR=0.0.0.0:5000 registry:2
+```
 
 - Open a browser: (localregistry runs on 127.0.0.1:5000)
 ```
