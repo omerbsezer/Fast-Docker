@@ -20,7 +20,7 @@ This repo aims to cover Docker details (Dockerfile, Image, Container, Commands, 
     - [Needs](#needs)
     - [Benefits](#benefits)
     - [Problems Docker does not solve](#problems)
-- [What is Docker?](#whatIsDocker)
+- [What is Docker?](#whatisdocker)
     - [Architecture](#architecture)
     - [Installation](#installation)
     - [Docker Engine (Deamon, REST API, CLI)](#engine)
@@ -36,7 +36,7 @@ This repo aims to cover Docker details (Dockerfile, Image, Container, Commands, 
     - [Docker Compose](#compose)
     - [Docker Swarm](#swarm)
     - [Docker Stack / Docker Service](#stack)
-- [Play With Docker](#playWithDocker)
+- [Play With Docker](#playwithdocker)
 - [Docker Commands Cheatsheet](#cheatsheet)
 - [Other Useful Resources Related Docker ](#resource)
 - [References](#references)
@@ -76,7 +76,7 @@ Why should we use Docker? "Docker changed the way applications used to build and
 
 (Ref: Infoworld)
 
-## What is Docker?  <a name="whatIsDocker"></a>
+## What is Docker?  <a name="whatisdocker"></a>
 - Docker is a tool that reduces the gap between Development/Deployment phase of a software development cycle.
 - Docker is like VM but it has more features than VMs (no kernel, only small app and file systems, portable)
     - On Linux Kernel (2000s) two features are added (these features support Docker):
@@ -461,7 +461,7 @@ docker service rollback --detach testservice (rollbacking to previous state)
 
 Goto: [App: Creating Docker Swarm Cluster With 5 PCs using PlayWithDocker : 3 x WordPress Containers and 1 x MySql Container using Docker-Compose File](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerStackService.md)
 
-## Play With Docker  <a name="playWithDocker"></a>
+## Play With Docker  <a name="playwithdocker"></a>
 
 - https://labs.play-with-docker.com/
 
