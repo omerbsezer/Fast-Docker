@@ -1,4 +1,4 @@
-## App: Transferring Content between Host PC and Docker Container
+## LAB-06: Transferring Content between Host PC and Docker Container
 
 This scenario shows how to transfer content between host and container:
 - Copying content from host PC to container
