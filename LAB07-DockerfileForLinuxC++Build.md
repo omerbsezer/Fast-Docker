@@ -1,4 +1,4 @@
-## App: Creating Docker Container to Build C++ on Ubuntu18.04
+## LAB-07: Creating Docker Container to Build C++ on Ubuntu18.04
 
 - In this scenario, we'll create Docker file from scratch that includes Cmake, Git, Python3, Conan, Gcc.
 - Create Dockerfile that includes following content: 
