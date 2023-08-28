@@ -2,6 +2,7 @@
 
 - In this scenario, we'll create Docker file from scratch that includes Cmake, Git, Python3, Conan, Gcc.
 - Create Dockerfile that includes following content: 
+- Dockerfile: https://github.com/omerbsezer/Fast-Docker/blob/main/labs/linux-dockerfile-c%2B%2B/Dockerfile
 
 ```
 FROM ubuntu:18.04
