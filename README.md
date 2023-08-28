@@ -13,6 +13,7 @@ This repo aims to cover Docker details (Dockerfile, Image, Container, Commands, 
 - [LAB-06: Transferring Content between Host PC and Docker Container](https://github.com/omerbsezer/Fast-Docker/blob/main/LAB06-DockerTransferringContent.md)
 - [LAB-07: Creating Docker Container using Dockerfile to Build C++ on Ubuntu18.04](https://github.com/omerbsezer/Fast-Docker/blob/main/LAB07-DockerfileForLinuxC++Build.md)
 - [LAB-08: Creating Docker Container using Dockerfile to Build C++ on Windows](https://github.com/omerbsezer/Fast-Docker/blob/main/LAB08-DockerfileForWindowsC++Build.md)
+- [LAB-09: Docker Configuration (Proxy, Registry)](https://github.com/omerbsezer/Fast-Docker/blob/main/LAB09-DockerConfiguration.md)
 - [Docker Commands Cheatsheet](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerCommandCheatSheet.md)
 
 # Table of Contents
