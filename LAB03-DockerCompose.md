@@ -1,4 +1,4 @@
-## App: Docker Compose and Creating WordPress Container Depends on MySql Container
+## LAB-03: Docker Compose and Creating WordPress Container Depends on MySql Container
 
 This scenario shows how to run multiple Docker containers using the docker-compose.yml file. 
 After running containers, it is shown how: 
