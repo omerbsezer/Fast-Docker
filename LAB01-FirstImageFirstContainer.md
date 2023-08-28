@@ -1,4 +1,4 @@
-## App: First Image and First Container
+## LAB-01: First Image and First Container
 
 This scenario shows how to build an image from Dockerfile, how to run a docker container from this image.
 
