@@ -1,9 +1,9 @@
 # Fast-Docker
-This repo aims to cover Docker details (Dockerfile, Image, Container, Commands, Volumes, Docker-Compose, Networks, Swarm, Stack) fastly, and possible example usage scenarios (HowTo: Applications) in a nutshell. Possible usage scenarios are aimed to update over time.
+This repo aims to cover Docker details (Dockerfile, Image, Container, Commands, Volumes, Docker-Compose, Networks, Swarm, Stack) quickly, and possible example usage scenarios (HowTo: LABs) in a nutshell. Possible usage scenarios are aimed to update over time.
 
 **Keywords:** Docker-Image, Dockerfile, Containerization, Docker-Compose, Docker-Volume, Docker-Network, Docker-Swarm, Service, Cheatsheet.
 
-# Quick Look (HowTo)
+# Quick Look (HowTo: LABs)
 - [LAB-01: Creating First Docker Image and Container using Docker File](https://github.com/omerbsezer/Fast-Docker/blob/main/LAB01-FirstImageFirstContainer.md)
 - [LAB-02: Binding Volume to the Different Containers](https://github.com/omerbsezer/Fast-Docker/blob/main/LAB02-DockerVolume.md)
     - [LAB-02.1: Binding Mount to the Container](https://github.com/omerbsezer/Fast-Docker/blob/main/LAB02-DockerVolume.md#app_mount)
@@ -58,7 +58,7 @@ Why should we use Docker? "Docker changed the way applications used to build and
 
 - NOT needed to install dependencies/SWs again & again
 - Enables to run on different OS, different platforms
-- Enables consistent environment
+- Enables a consistent environment
 - Enables more efficient use of system resources
 - Easy to use and maintain
 - Efficient use of the system resources
@@ -78,12 +78,12 @@ Why should we use Docker? "Docker changed the way applications used to build and
 (Ref: Infoworld)
 
 ## What is Docker?  <a name="whatisdocker"></a>
-- Docker is a tool that reduces the gap between Development/Deployment phase of a software development cycle.
-- Docker is like VM but it has more features than VMs (no kernel, only small app and file systems, portable)
+- Docker is a tool that reduces the gap between the Development/Deployment phase of a software development cycle.
+- Docker is like a VM but it has more features than VMs (no kernel, only small app and file systems, portable)
     - On Linux Kernel (2000s) two features are added (these features support Docker):
         - Namespaces: Isolate process.
         - Control Groups: Resource usage (CPU, Memory) isolation and limitation for each process. 
-- Without Docker, each VM consumes 30% resources (Memory, CPU)
+- Without Docker, each VM consumes 30% of resources (Memory, CPU)
 
 ![image](https://user-images.githubusercontent.com/10358317/113183089-ef51fa00-9253-11eb-9ade-771905ce8ebd.png) (Ref: Docker.com)
 
@@ -188,8 +188,8 @@ docker container unpause [containerId or containerName]
 
 ### Docker Volumes/Bind Mounts  <a name="volume"></a>
 
-- Volumes and binding mounts must be used for saving logs, output files, and using input files.
-- When volumes bind to the directory in the container, this directory and volume are synchronised.
+- Volumes and binding mounts must be used for saving logs, output files, and input files.
+- When volumes bind to the directory in the container, this directory and volume are synchronized.
 
 ```
 docker volume create [volumeName]
@@ -211,7 +211,7 @@ Goto: [App: Transferring Content between Host PC and Docker Container](https://g
 
 ### Docker Network <a name="network"></a>
 - Docker containers work like VMs.
-- Every Docker containers have network connections
+- Every Docker container has network connections
 - Docker Network Drivers:
     - None
     - Bridge
@@ -253,12 +253,12 @@ docker container run --name c1 --net host alpine sh
 ![image](https://user-images.githubusercontent.com/10358317/113185061-43f67480-9256-11eb-9b94-83735ce980ce.png) (Ref: Docker.com)
 
 #### Docker Network: MacVlan
-- Each Container have own MAC interface (--net macvlan)
+- Each Container has its own MAC interface (--net macvlan)
 
 ![image](https://user-images.githubusercontent.com/10358317/113185105-52dd2700-9256-11eb-84f2-ef1880eb4f4c.png) (Ref: Docker.com)
 
 #### Docker Network: Overlay 
-- Containers which work on different PC/host can work as the same network (--net overlay)
+- Containers that work on different PCs/hosts can work as the same network (--net overlay)
 
 ![image](https://user-images.githubusercontent.com/10358317/113185192-6e483200-9256-11eb-8cb4-d8aa170d1a1e.png) (Ref: Docker.com)
 
