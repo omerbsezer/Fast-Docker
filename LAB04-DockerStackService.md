@@ -1,4 +1,4 @@
-## App: Docker Swarm using PlayWithDocker, Creating Swarm Cluster: 3 x WordPress Containers and 1 x MySql Container
+## LAB-04: Docker Swarm using PlayWithDocker, Creating Swarm Cluster: 3 x WordPress Containers and 1 x MySql Container
 
 This scenario shows how to run multi-containers in the cluster using the Docker Stack file by creating a service in Docker Swarm. It goes following:
 - Creating Docker Swarm Cluster (2 Manager Nodes, 3 Worker Nodes) using [PlayWithDocker](https://labs.play-with-docker.com/)
