@@ -1,4 +1,4 @@
-## App: Running Docker Free Local Registry, Tagging Container, Pushing to Local Registry, Pulling From Local Registry
+## LAB-05: Running Docker Free Local Registry, Tagging Container, Pushing to Local Registry, Pulling From Local Registry
 
 This scenario shows how to run Docker local free registry, tag container, push into the local registry and pull from the registry.
 
