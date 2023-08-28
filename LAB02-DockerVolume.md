@@ -1,4 +1,4 @@
-## App: Binding Volume to the Different Containers
+## LAB-02: Binding Volume to the Different Containers
 
 This scenario shows the Docker-Volume functionality. 
 - Firstly, a new volume "test" will be created and connected to the Nginx container directory ("mywebserver"). Content will be synchronized.
