@@ -3,7 +3,8 @@
 - In this scenario, we'll create Docker file from scratch that includes Visual Studio Compiler (VS2019Community), Python, Choco, Conan, Cmake, Git.
 - Please in your PC, release minimum 20GB-25GB of diskspace (because base image of Win-Server-Core with .Net is ~12GB). 
 - Switch to your Docker Desktop to Windows Containers
-- Create Dockerfile that includes following content: 
+- **Dockerfile**: https://github.com/omerbsezer/Fast-Docker/blob/main/labs/windows-dockerfile-c%2B%2B/Dockerfile
+- Create a Dockerfile that includes the following content:
 
 ```
 # escape=`
