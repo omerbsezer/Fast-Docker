@@ -289,7 +289,7 @@ docker logs --details [containerName]
 ![image](https://user-images.githubusercontent.com/10358317/113289773-f5e27f00-92f0-11eb-8c4f-2db75f17baeb.png)
 
 
-### Docker Enviroment Variables  <a name="variables"></a>
+### Docker Environment Variables  <a name="variables"></a>
 
 ![image](https://user-images.githubusercontent.com/10358317/113289974-40fc9200-92f1-11eb-9f12-1125ec32eabf.png)
 
